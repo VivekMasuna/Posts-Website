@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GoCommentDiscussion } from "react-icons/go";
-import { LiaHeart, LiaUserCircle } from "react-icons/lia"; 
+import { LiaHeart, LiaUserCircle } from "react-icons/lia";
+import { FidgetSpinner } from 'react-loader-spinner'
 
 const CommentSection = ({ postId }) => {
     const [comments, setComments] = useState([]);
@@ -38,7 +39,21 @@ const CommentSection = ({ postId }) => {
     //     }
     // };
 
-    if (loading) return <p>Loading comments...</p>;
+    if (loading) {
+        return (
+            <div className="comments-loader">
+                {/* <FidgetSpinner
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="fidget-spinner-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="fidget-spinner-wrapper"
+                /> */}
+                Loading Comments...
+            </div>
+        );
+    }
 
     const handleUserClick = (userId) => {
         navigate(`/user/${userId}`);

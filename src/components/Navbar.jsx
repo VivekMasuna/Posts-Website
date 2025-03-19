@@ -5,6 +5,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/">SocialSpace</Link>
+      <p>Vivek_Masuna</p>
     </nav>
   );
 };
